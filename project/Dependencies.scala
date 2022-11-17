@@ -11,5 +11,9 @@ object Dependencies {
     final val refinedCats = "eu.timepit" %% "refined-cats" % "0.10.1"
   }
 
+  object Enumeratum {
+    final val enumeratum = "com.beachape" %% "enumeratum" % "1.7.0"
+  }
+
   final val newtype = "io.estatico" %% "newtype" % "0.4.4"
 }

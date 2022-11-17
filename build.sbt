@@ -13,7 +13,8 @@ lazy val root = (project in file("."))
       Cats.effect,
       newtype,
       Refined.refined,
-      Refined.refinedCats
+      Refined.refinedCats,
+      Enumeratum.enumeratum
     ),
     scalacOptions ++= Seq(
       "-Ymacro-annotations"
