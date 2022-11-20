@@ -3,13 +3,13 @@ package domain
 
 import enumeratum.{EnumEntry, Enum}
 
-sealed trait CardSuite extends EnumEntry
+sealed abstract class CardSuite(override val entryName: String) extends EnumEntry
 
 object CardSuite extends Enum[CardSuite] {
   override def values: IndexedSeq[CardSuite] = findValues
 
-  case object Spades extends CardSuite
-  case object Clubs extends CardSuite
-  case object Hearts extends CardSuite
-  case object Diamonds extends CardSuite
+  case object Spades extends CardSuite("s")
+  case object Clubs extends CardSuite("c")
+  case object Hearts extends CardSuite("h")
+  case object Diamonds extends CardSuite("d")
 }

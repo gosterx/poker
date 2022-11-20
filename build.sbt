@@ -5,6 +5,7 @@ ThisBuild / version := "0.1.0-SNAPSHOT"
 ThisBuild / scalaVersion := "2.13.10"
 
 lazy val root = (project in file("."))
+  .settings(addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"))
   .settings(
     name := "poker",
     idePackagePrefix := Some("org.example.application"),
@@ -20,3 +21,5 @@ lazy val root = (project in file("."))
       "-Ymacro-annotations"
     )
   )
+
+

@@ -3,12 +3,12 @@ package domain
 
 import enumeratum.{EnumEntry, Enum}
 
-sealed trait GameType extends EnumEntry
+sealed abstract class GameType(override val entryName: String) extends EnumEntry
 
 object GameType extends Enum[GameType] {
   override def values: IndexedSeq[GameType] = findValues
 
-  case object TexasHoldem extends GameType
-  case object OmahaHoldem extends GameType
-  case object FiveCardDraw extends GameType
+  case object TexasHoldem extends GameType("texas-holdem")
+  case object OmahaHoldem extends GameType("omaha-holdem")
+  case object FiveCardDraw extends GameType("five-card-draw")
 }
