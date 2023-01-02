@@ -7,13 +7,11 @@ import org.example.application.comparing.ComparingStatus
 
 sealed trait CombinationSolver {
   def of(board: Board, hand: Hand): Option[Combination]
+
+  def compareSameCombinations(c1: Combination, c2: Combination): ComparingStatus
 }
 
-sealed trait SameCombinationsComparator {
-  def compareWith(that: Combination): ComparingStatus
-}
-
-trait TexasHoldemSolver extends CombinationSolver with SameCombinationsComparator
+trait TexasHoldemSolver extends CombinationSolver
 
 object TexasHoldemSolver {
   final val all: List[TexasHoldemSolver] = List(

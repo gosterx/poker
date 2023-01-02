@@ -9,6 +9,4 @@ trait Combination {
   def kickers: List[Card]
 
   def power: Int
-
-  def compareWith(that: Combination): Boolean
 }
