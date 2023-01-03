@@ -34,7 +34,7 @@ final class Parser[F[_]: Sync] private {
     input.grouped(2).toList.traverse(parseCard).map(Board)
 
   private def parseHands(input: List[String]): F[List[Hand]] =
-    input.traverse(_.grouped(2).toList.traverse(parseCard).map(Hand))
+    input.traverse(_.grouped(2).toList.traverse(parseCard).map(Hand(_)))
 
   def parse(input: String): F[InputData] =
     input.split(' ').toList match {

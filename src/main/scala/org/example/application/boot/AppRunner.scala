@@ -7,7 +7,6 @@ import util.Parser
 
 import cats.effect.kernel.Sync
 import error.ApplicationError
-
 import domain.GameType
 import game._
 
@@ -23,6 +22,7 @@ object AppRunner {
         case GameType.OmahaHoldem  => OmahaHoldem.process(data.board, data.hands)
         case GameType.FiveCardDraw => FiveCardDraw.process(data.board, data.hands)
       }).pure[F]
+      _ <- Console[F].println(result.show)
     } yield ()).recoverWith {
       case error: ApplicationError => Console[F].println(error.show)
     }
